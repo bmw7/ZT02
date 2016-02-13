@@ -1,0 +1,56 @@
+/** ͨ�� */
+.custom_title{ width:100%;height:35px;border-bottom:1px solid #dddddd;}
+.custom_title .custom_title_badge{ line-height:16px;}
+.custom_title .custom_title_word{ font-size:20px;padding-left:8px;line-height:20px;border-left:2px solid #44beea;}
+.custom_body{ width:100%;height:auto;padding-top:15px;}
+.w1920{ width:104%;margin-left:-4%;}
+.w1680{ width:103.5%;margin-left:-3.5%;}
+.w1600{ width:103%;margin-left:-3%;}
+.w1440{ width:102.5%;margin-left:-2.5%;}
+.w1400{ width:102.2%;margin-left:-2.2%;}
+.w1366{ width:102%;margin-left:-2%;}
+.w1360{ width:101.8%;margin-left:-1.8%;}
+.w1280{ width:101.5%;margin-left:-1.5%;}
+.w1152{ width:100.5%;margin-left:-0.5%;}
+.w1024{ width:100.3%;margin-left:-0.3%;}
+.top15{ padding-top:15px;}
+.custom_control_height{ height:19px;overflow:hidden;}
+
+/** ��ҳindex.ftl */
+#title{ font-size:50px;text-align:center;padding-top:40px;}
+#title_sm{ font-size:20px;text-align:center;color:#999999;}
+
+/** ��½ҳ�� login.ftl */
+#custom_tips{ height:110px;background-color:#fafafa;width:830px;display:none;}
+.custom_tips_container{ margin-top:10px;margin-left:20px }
+.custom_tips_overflow{ overflow:hidden;padding-top:30px; }
+
+/** ���·���ҳ�� admin/article/add.ftl */
+.custom_seo{ display:none; }
+.custom_images{ height:0px;overflow:hidden; }
+.custom_select{ height:39px;width:100%;border:1px solid #dddddd;}
+.custom_option_title{ font-size:10px;padding-left:10px;}
+#editor{ width:100%;}
+
+/** ������ʽ */
+.custom_href{ color:#666;}
+
+/** ��������ҳ�� admin/setting/navigation/list.ftl */
+.custom_input_sm{ height:20px;border:1px solid #dddddd; }
+.custom_input_btn{ margin-top:-3px;line-height:0px; }
+
+.link_item{width:100%;height:32px;line-height:32px;border:solid 1px #e5e5e5;}
+
+/** ��������*/
+.add_form{ width:100%;margin-bottom:20px;}
+
+
+/** ��������*/
+.upload_input{ height:32px;}
+.item_logo{ height:32px;}
+
+.custom_page{ text-align:right;}
+
+#upload_zone{ height:260px;border:1px solid #dddddd;padding-top:10px;overflow:hidden;}
+
+#manageImageArea{ display:none; width:100%;margin-top:15px;}

@@ -1,0 +1,57 @@
+1、为解决webuploader冲突，将  ececec 全部替换为了 [***]
+
+
+
+	// 手机提交注册
+	/*
+	$('#phoneSubmit').click(function(){
+
+	    // 手机号码表单为空验证
+		var phone = $('#phone').val();
+		var password = $('#password').val();
+		var re-password = $('#re-password').val();
+		
+		if(phone == ""){
+			$('#phone').parent().parent().addClass("has-error");
+			return;
+		}
+		
+		// 从cookie中验证码校验
+		/*
+		var idCode = $.cookie("idCode");
+		if(idCode != null && idCode != ""){
+			
+		}else{
+			$('#idCode').parent().parent().addClass("has-error");
+			return;
+		}*/
+		
+		// password为空
+		if(password == ""){
+			$('#password').parent().parent().addClass("has-error");
+			return;
+		}
+		
+		// rePassword为空
+		if(re-password == ""){
+			$('#rePassword').parent().parent().addClass("has-error");
+			return;
+		}
+		
+		// 两次输入密码不一致
+		/*
+		if(rePassword != password){
+		    $('#password').parent().parent().addClass("has-error");
+			$('#rePassword').parent().parent().addClass("has-error");
+			return;
+		}
+		
+		$.ajax({
+			type: 'POST',
+			url: '${base}/member/registerPhone',
+			data: {'phone':phone,'password':password},
+			success: function(data){ alert('注册成功！'); }	
+		});	*/
+		
+	});*/
+	

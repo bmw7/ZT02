@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+	<setting name="siteName" value="盖乐照明工作室" />
+	<setting name="siteUrl" value="http://www.galadc.com" />
+	<setting name="logo" value="/content/upload/image/logo.gif" />
+	<setting name="address" value="北京市海淀区" />
+	<setting name="phone" value="400-8888888" />
+	<setting name="zipCode" value="400000" />
+	<setting name="email" value="z@mavict.com" />
+	<setting name="certtext" value="京ICP备10000000号" />
+	<setting name="isSiteEnabled" value="true" />
+
+	<setting name="smtpFromMail" value="test@shopxx.net" />
+	<setting name="smtpHost" value="smtp.shopxx.net" />
+	<setting name="smtpPort" value="25" />
+	<setting name="smtpUsername" value="test" />
+	<setting name="smtpPassword" value="test" />
+
+	<template id="articles"  type="page" name="多篇文章内容" templatePath="/client/article/articles.ftl" staticDir="/articles/" /> <!-- /实体/模板/ 格式 -->
+	<template id="article" type="page" name="单篇文章内容" templatePath="/client/article/article.ftl" staticDir="/article/" />  <!-- /实体/模板/ 格式 -->
+	<template id="navigation"    type="page" name="导航目录代码片段" templatePath="/client/include/navigation/left_menu.ftl" staticDir="/content/include/" />  
+	<template id="subNavigation"    type="page" name="二级导航目录代码片段" templatePath="/client/include/content/subnavigation.ftl" staticDir="/content/include/" />  
+	<template id="articleList" type="page" name="文章列表" templatePath="/client/article/list.ftl" staticDir="/content/list/" />  
+	<template id="abbreviation" type="page" name="缩略文章列表代码片段" templatePath="/client/snippet/content/abbreviation.ftl" staticDir="/content/snippet/" />  
+</project>

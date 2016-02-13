@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"  
+ xmlns:context="http://www.springframework.org/schema/context"  
+ xmlns:p="http://www.springframework.org/schema/p"  
+ xmlns:mvc="http://www.springframework.org/schema/mvc"  
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+ xsi:schemaLocation="http://www.springframework.org/schema/beans  
+      http://www.springframework.org/schema/beans/spring-beans-3.2.xsd  
+      http://www.springframework.org/schema/context  
+      http://www.springframework.org/schema/context/spring-context-3.2.xsd  
+      http://www.springframework.org/schema/mvc  
+      http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
+    
+    <!-- 注解扫描包 -->
+	<context:component-scan base-package="com.mavict" />
+	
+	<!-- 开启注解 -->
+	<!-- <mvc:annotation-driven />-->
+
+<mvc:annotation-driven>   
+    <mvc:message-converters>     
+        <bean class="org.springframework.http.converter.StringHttpMessageConverter">     
+            <property name="supportedMediaTypes">     
+                <list>     
+                    <value>text/plain;charset=UTF-8</value>     
+                    <value>text/html;charset=UTF-8</value>     
+                </list>     
+            </property>     
+        </bean>      
+    </mvc:message-converters>     
+</mvc:annotation-driven>   
+	
+	<!-- 静态资源访问 -->
+	 <mvc:resources location="/resource/" mapping="/resource/**"/> 
+	 <mvc:resources location="/content/" mapping="/content/**"/>   
+	 <mvc:resources location="/*.html" mapping="/*.html"/>
+	 
+    <!-- freemarker的视图配置 -->  
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">  
+        <property name="cache" value="true" />  
+        <property name="prefix" value="" />       <!-- 注意，这个地方配置一个即可，配置两个即失效 -->
+        <property name="suffix" value=".ftl" />  
+        <property name="contentType" value="text/html;charset=UTF-8"></property>  
+        <property name="requestContextAttribute" value="request" />  
+        <property name="exposeSpringMacroHelpers" value="true" />  
+        <property name="exposeRequestAttributes" value="true" />  
+        <property name="exposeSessionAttributes" value="true" />  
+    </bean>  
+
+
+    <!-- springmvc国际化 -->                                             <!-- 此处注意，不可用reload那个类 -->
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="useCodeAsDefaultMessage" value="true" />
+		<property name="basenames" value="messages"></property>
+	</bean>
+	
+	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.FixedLocaleResolver">
+		<property name="defaultLocale" value="zh_CN" />
+	</bean>
+	
+	
+	<!-- 指定所上传文件的总大小不能超过5400KB......注意maxUploadSize属性的限制不是针对单个文件,而是所有文件的容量之和 -->  
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" >
+		<property name="defaultEncoding" value="UTF-8"></property>
+		<property name="maxUploadSize" value="10001000000"></property> 
+		<!-- <property name="uploadTempDir" value="upload/temp"></property>  -->
+    </bean>  
+
+    
+    <!-- SpringMVC在超出上传文件限制时,会抛出org.springframework.web.multipart.MaxUploadSizeExceededException -->  
+    <!-- 该异常是SpringMVC在检查上传的文件信息时抛出来的,而且此时还没有进入到Controller方法中 -->
+    <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">  
+        <property name="exceptionMappings">  
+            <props>  
+                <!-- 遇到MaxUploadSizeExceededException异常时,自动跳转到/WEB-INF/jsp/error_fileupload.jsp页面 -->  
+                <prop key="org.springframework.web.multipart.MaxUploadSizeExceededException">error_fileupload</prop>  
+            </props>  
+        </property>  
+    </bean>
+   
+ 
+ 
+    <!-- shiro注解 配置。只能配置在MVC里-->
+    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">  
+        <property name="exceptionMappings">  
+            <props>  
+                <prop key="org.apache.shiro.authz.UnauthorizedException">/admin/common/unauthorized</prop>   <!-- 实际映射地址 不是经过controller转的 -->
+            </props>  
+        </property>  
+    </bean> 
+    
+	<bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator" depends-on="lifecycleBeanPostProcessor" />
+	<bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+    	<property name="securityManager" ref="securityManager"/>
+	</bean>
+	
+      
+  
+
+ </beans>  
