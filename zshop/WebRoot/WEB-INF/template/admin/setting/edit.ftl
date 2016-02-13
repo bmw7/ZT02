@@ -17,7 +17,7 @@
 
 
 <div class="custom_main">
-<div class="custom_title"><span class="glyphicons glyphicons-list"></span><span class="custom_title_word">系统设置</span></div>
+<div class="custom_title"><span class="custom_title_word">系统设置</span></div>
 <div class="custom_body">
                         
 	<form class="form-horizontal" action="${base}/admin/setting/update" id="inputForm" method="post" role="form">
