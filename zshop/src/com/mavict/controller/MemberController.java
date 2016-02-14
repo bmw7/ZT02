@@ -91,7 +91,7 @@ public class MemberController {
 				memberCookieValue = member.getName();
 			}
 			
-			WebUtils.addCookie(request, response, Member.COOKIE_NAME, memberCookieValue);
+			WebUtils.addCookie(response, Member.COOKIE_NAME, memberCookieValue);
 			return "success";
 		}	
 		return "登陆失败";

@@ -121,7 +121,7 @@ $(document).ready(function(){
 	/* -----  会员  ---- */ 
 	 
 	var member = $.cookie('member');
-
+	
 	if (member != null) {
 		$('#header_member').text(member).show();
 		$('#header_logout').show();

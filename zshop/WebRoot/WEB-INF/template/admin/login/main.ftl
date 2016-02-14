@@ -130,50 +130,14 @@
                     </li>
 
 
-                    <li class="sidebar-label pt15">内容管理</li>
-                    <li>
-                        <a href="${base}/admin/article/add" target="iframe">
-                            <span class="glyphicons glyphicons-edit"></span>
-                            <span class="sidebar-title">文章发布</span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="${base}/admin/article/manage" target="iframe">
-                            <span class="glyphicons glyphicons-file_import"></span>
-                            <span class="sidebar-title">文章管理</span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="${base}/admin/article/category/list" target="iframe">
-                            <span class="glyphicons glyphicons-list"></span>
-                            <span class="sidebar-title">文章分类</span>
-                        </a>
-                    </li>
+                    <li class="sidebar-label pt15">主体功能</li>
+                         
                     
-                    <li>
-                        <a href="${base}/admin/guestbook/list" target="iframe">
-                            <span class="glyphicons glyphicons-comments"></span>
-                            <span class="sidebar-title">留言管理</span>
-                        </a>
-                    </li>
-                    
-                    <li>
-                        <a href="${base}/admin/friendlinks/list" target="iframe">
-                            <span class="glyphicons glyphicons-link"></span>
-                            <span class="sidebar-title">友情链接</span>
-                        </a>
-                    </li>
-
-                    <!-- sidebar bullets -->
-                    <li class="sidebar-label pt20">系统相关</li>
-
-
+                    <!--商品管理--> 
                     <li>
                         <a class="accordion-toggle" href="#">
                             <span class="glyphicons glyphicons-keys"></span>
-                            <span class="sidebar-title">权限管理</span>
+                            <span class="sidebar-title">商品管理</span>
                             <span class="caret"></span>
                         </a>
                         <ul class="nav sub-nav">
@@ -187,22 +151,137 @@
                             </li>
                         </ul>
                     </li>
-
+                    
+                    
+                    <!--订单管理--> 
                     <li>
-                        <a href="${base}/admin/setting/navigation/list" target="iframe">
-                            <span class="glyphicons glyphicons-adjust_alt"></span>
-                            <span class="sidebar-title">导航设置</span>
+                        <a class="accordion-toggle" href="#">
+                            <span class="glyphicons glyphicons-keys"></span>
+                            <span class="sidebar-title">订单管理</span>
+                            <span class="caret"></span>
                         </a>
+                        <ul class="nav sub-nav">
+                            <li>
+                                <a href="${base}/admin/account/list" target="iframe">
+                                    <span class="glyphicons glyphicons-group"></span> 账号管理 </a>
+                            </li>
+                            <li>
+                                <a href="${base}/admin/account/role/list" target="iframe">
+                                    <span class="glyphicons glyphicons-share_alt"></span> 角色管理 </a>
+                            </li>
+                        </ul>
                     </li>
+                    
+        
+        
+        			<!--会员管理--> 
                     <li>
-                        <a href="${base}/admin/setting/edit" target="iframe">
-                            <span class="glyphicons glyphicons-settings"></span>
+                        <a class="accordion-toggle" href="#">
+                            <span class="glyphicons glyphicons-keys"></span>
+                            <span class="sidebar-title">会员管理</span>
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="nav sub-nav">
+                            <li>
+                                <a href="${base}/admin/account/list" target="iframe">
+                                    <span class="glyphicons glyphicons-group"></span> 账号管理 </a>
+                            </li>
+                            <li>
+                                <a href="${base}/admin/account/role/list" target="iframe">
+                                    <span class="glyphicons glyphicons-share_alt"></span> 角色管理 </a>
+                            </li>
+                        </ul>
+                    </li>  
+                    
+                                                          
+                    <!--内容管理-->                    
+                    <li>
+                        <a class="accordion-toggle" href="#">
+                            <span class="glyphicons glyphicons-keys"></span>
+                            <span class="sidebar-title">内容管理</span>
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="nav sub-nav">
+		                    <li>
+		                        <a href="${base}/admin/article/add" target="iframe">
+		                            <span class="glyphicons glyphicons-edit"></span>文章发布
+		                        </a>
+		                    </li>
+		                    <li>
+		                        <a href="${base}/admin/article/manage" target="iframe">
+		                            <span class="glyphicons glyphicons-file_import"></span>文章管理
+		                        </a>
+		                    </li>
+		                    <li>
+		                        <a href="${base}/admin/article/category/list" target="iframe">
+		                            <span class="glyphicons glyphicons-list"></span>文章分类
+		                        </a>
+		                    </li>		                    
+		                    <li>
+		                        <a href="${base}/admin/guestbook/list" target="iframe">
+		                            <span class="glyphicons glyphicons-comments"></span>留言管理
+		                        </a>
+		                    </li>
+		                    <li>
+		                        <a href="${base}/admin/friendlinks/list" target="iframe">
+		                            <span class="glyphicons glyphicons-link"></span>友情链接
+		                        </a>
+		                    </li>		                    		                    
+		                    
+                        </ul>
+                    </li>                                      
+                                        
+
+
+                    <!-- 统计数据 -->
+                    <li>
+                        <a class="accordion-toggle" href="#">
+                            <span class="glyphicons glyphicons-keys"></span>
+                            <span class="sidebar-title">统计数据</span>
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="nav sub-nav">
+                            <li>
+                                <a href="${base}/admin/account/list" target="iframe">
+                                    <span class="glyphicons glyphicons-group"></span> 账号管理 </a>
+                            </li>
+                            <li>
+                                <a href="${base}/admin/account/role/list" target="iframe">
+                                    <span class="glyphicons glyphicons-share_alt"></span> 角色管理 </a>
+                            </li>
+                        </ul>
+                    </li>  
+                    
+                    
+                    <!-- 系统设置 -->               
+                    
+                    <li>
+                        <a class="accordion-toggle" href="#">
+                            <span class="glyphicons glyphicons-keys"></span>
                             <span class="sidebar-title">系统设置</span>
+                            <span class="caret"></span>
                         </a>
+                        <ul class="nav sub-nav">
+                            <li>
+                                <a href="${base}/admin/account/list" target="iframe">
+                                    <span class="glyphicons glyphicons-group"></span> 账号管理 </a>
+                            </li>
+                            <li>
+                                <a href="${base}/admin/account/role/list" target="iframe">
+                                <span class="glyphicons glyphicons-share_alt"></span> 角色管理 </a>
+                            </li>
+		                    <li>
+		                        <a href="${base}/admin/setting/navigation/list" target="iframe">
+		                        <span class="glyphicons glyphicons-adjust_alt"></span>导航设置</a>
+		                    </li>
+				            <li>
+		                        <a href="${base}/admin/setting/edit" target="iframe">
+		                        <span class="glyphicons glyphicons-settings"></span>系统参数</a>
+		                    </li>
+                        </ul>
                     </li>
- 
 
-                    <!-- sidebar progress bars -->
+   
                     
                     
                 </ul>

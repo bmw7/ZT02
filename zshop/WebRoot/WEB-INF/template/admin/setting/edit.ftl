@@ -77,6 +77,20 @@
 			                <input type="text" name="email" id="email" class="form-control" value="${setting.email}">
 			            </div>
 			        </div>
+			        
+			        <div class="form-group">
+			            <label class="col-md-1 col-sm-1  control-label">Cookie地址</label>
+			            <div class="col-md-5 col-sm-5">
+			                <input type="text" name="cookiePath" id="cookiePath" class="form-control" value="${setting.cookiePath}">
+			            </div>
+			        </div>
+			        
+			        <div class="form-group">
+			            <label class="col-md-1 col-sm-1  control-label">Cookie域</label>
+			            <div class="col-md-5 col-sm-5">
+			                <input type="text" name="cookieDomain" id="cookieDomain" class="form-control" value="${setting.cookieDomain}">
+			            </div>
+			        </div>
                                           
                 </div>
             </div>

@@ -51,8 +51,7 @@ public final class WebUtils {
 	 * @param secure
 	 *            是否启用加密
 	 */
-	public static void addCookie(HttpServletRequest request, HttpServletResponse response, String name, String value, Integer maxAge, String path, String domain, Boolean secure) {
-		Assert.notNull(request);
+	public static void addCookie(HttpServletResponse response, String name, String value, Integer maxAge, String path, String domain, Boolean secure) {
 		Assert.notNull(response);
 		Assert.hasText(name);
 		try {
@@ -80,8 +79,6 @@ public final class WebUtils {
 	/**
 	 * 添加cookie
 	 * 
-	 * @param request
-	 *            HttpServletRequest
 	 * @param response
 	 *            HttpServletResponse
 	 * @param name
@@ -91,9 +88,9 @@ public final class WebUtils {
 	 * @param maxAge
 	 *            有效期(单位: 秒)
 	 */
-	public static void addCookie(HttpServletRequest request, HttpServletResponse response, String name, String value, Integer maxAge) {
+	public static void addCookie(HttpServletResponse response, String name, String value, Integer maxAge) {
 		Setting setting = SettingUtils.get();
-		addCookie(request, response, name, value, maxAge, setting.getCookiePath(), setting.getCookieDomain(), null);
+		addCookie(response, name, value, maxAge, setting.getCookiePath(), setting.getCookieDomain(), null);
 	}
 
 	/**
@@ -108,9 +105,9 @@ public final class WebUtils {
 	 * @param value
 	 *            cookie值
 	 */
-	public static void addCookie(HttpServletRequest request, HttpServletResponse response, String name, String value) {
+	public static void addCookie(HttpServletResponse response, String name, String value) {
 		Setting setting = SettingUtils.get();
-		addCookie(request, response, name, value, null, setting.getCookiePath(), setting.getCookieDomain(), null);
+		addCookie(response, name, value, null, setting.getCookiePath(), setting.getCookieDomain(), null);
 	}
 
 	/**

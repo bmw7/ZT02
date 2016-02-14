@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-	<setting name="siteName" value="盖乐照明工作室" />
-	<setting name="siteUrl" value="http://www.galadc.com" />
+	<setting name="siteName" value="biushop" />
+	<setting name="siteUrl" value="http://www.biushop.com" />
 	<setting name="logo" value="/content/upload/image/logo.gif" />
 	<setting name="address" value="北京市海淀区" />
 	<setting name="phone" value="400-8888888" />
@@ -12,8 +12,8 @@
 	<setting name="cookiePath" value="/" />
 	<setting name="cookieDomain" value="" />
 
-	<setting name="smtpFromMail" value="test@shopxx.net" />
-	<setting name="smtpHost" value="smtp.shopxx.net" />
+	<setting name="smtpFromMail" value="test@biushop.com" />
+	<setting name="smtpHost" value="smtp.biushop.com" />
 	<setting name="smtpPort" value="25" />
 	<setting name="smtpUsername" value="test" />
 	<setting name="smtpPassword" value="test" />
