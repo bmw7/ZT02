@@ -11,7 +11,12 @@ import java.util.Date;
  * @author 沧海软件(北京)有限公司
  * @version 1.0
  */
-public class TimeUtils {
+public final class TimeUtils {
+	
+	/** 不可实例化  */
+	private TimeUtils() {
+		
+	}
 	
 	/** date增加1000年*/
 	public static Date add1000(Date date){

@@ -1,0 +1,3 @@
+eclipse.preferences.version=1
+validator.Checked=WebRoot/WEB-INF/web.xml,WebRoot/resource/plugin/ueditor/jsp/config.json
+validator.Unchecked=

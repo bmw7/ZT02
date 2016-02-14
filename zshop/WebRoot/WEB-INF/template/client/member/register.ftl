@@ -6,15 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>注册表单</title>
     <link rel="stylesheet" href="${base}/resource/client/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="${base}/resource/client/css/common.css" />
     <style>
     	.tab-content{ margin-top:30px; }
-    	.row:first-child{ margin-top:100px;margin-bottom:30px; }
+    	.row:nth-child(2){ margin-top:100px;margin-bottom:50px; }
     </style>
 </head>
 <body>
 
 <div class="container">
-
+    <#include "/client/include/header.ftl">
 	<div class="row"><h1 class="text-center">注册表单</h1></div>
 	<div class="row">
 	
@@ -39,14 +40,14 @@
 						<div class="form-group">
 							<label class="control-label col-md-3">密码</label>
 							<div class="col-md-9">
-								<input type="text" class="form-control" name="ue-password" id="ue-password" placeholder="请输入密码"> 
+								<input type="password" class="form-control" name="ue-password" id="ue-password" placeholder="请输入密码"> 
 							</div>
 						</div>
 						
 						<div class="form-group">
 							<label class="control-label col-md-3">确认密码</label>
 							<div class="col-md-9">
-								<input type="text" class="form-control" name="ue-re-password" id="ue-re-password" placeholder="再次输入密码"> 
+								<input type="password" class="form-control" name="ue-re-password" id="ue-re-password" placeholder="再次输入密码"> 
 							</div>
 						</div>
 						
@@ -112,6 +113,7 @@
 		
 	</div>
 	
+	<#include "/client/include/footer.ftl">
 </div>
 
 <!--[if lt IE 9]>
@@ -122,6 +124,7 @@
 <script src="${base}/resource/client/js/jquery.min.js"></script>
 <script src="${base}/resource/client/js/bootstrap.min.js"></script>
 <script src="${base}/resource/admin/js/jquery.cookie.js"></script>
+<script src="${base}/resource/client/js/header.member.js"></script>
 <script language="javascript">
 $(document).ready(function(){
     var interval;
@@ -132,7 +135,7 @@ $(document).ready(function(){
 		if(phone != null && phone != ""){
 			$.ajax({
 				type: 'POST',
-				url: '${base}/member/phoneSMS',
+				url: '${base}/register/phoneSMS',
 				data: {'phone':phone},
 				success:function(data){ alert(data); }	
 			});	
@@ -168,11 +171,11 @@ $(document).ready(function(){
 	
 
 	
-	// 手机提交注册
+	// 用户名邮箱注册
 	$('#usernameSubmit').click(function(){
 		$.ajax({
 			type: 'POST',
-			url: '${base}/member/registerUsername',
+			url: '${base}/register/username',
 			data: {'username-email':$('#username-email').val(),'password':$('#ue-password').val()},
 			success: function(data){ alert(data); }
 		

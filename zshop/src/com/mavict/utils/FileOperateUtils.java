@@ -26,7 +26,12 @@ import org.springframework.web.multipart.MultipartFile;
  * @author 沧海软件(北京)有限公司
  * @version 1.0
  */
-public class FileOperateUtils {
+public final class FileOperateUtils {
+	
+	/** 不可实例化  */
+	private FileOperateUtils() {
+		
+	}
 	
 	private static String SEP = File.separator;
 	

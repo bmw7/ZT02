@@ -115,62 +115,23 @@ public interface BaseService<T,ID extends Serializable> {
 	 * @return 实体List
 	 * */
 	List<T> getService(); 
-	
+		
 	
 	/**
-	 * [G1] 获取实体集合 - 查询字段值获取 - 默认逆序
+	 * [G1] 获取所有 满足条件语句的 count个 实体集合 - [BASE]
 	 * 
-	 * @param column 欲查询的字段名
-	 * @param value  查询字段的值
-	 * @param orderColumn 默认逆序排列的字段名
+	 * @param start 开始条目
+	 * @param count 条目数
+	 * @param clause 条件语句 形如 "where id = ? and name = ?"
+	 * @param values 占位符? 的对应值
 	 * 
 	 * @return 实体List集合
 	 * */
-	List<T> getService(String column,Object value,String orderColumn);
-	
-	
-	/**
-	 * [G1-BASE] 获取实体集合 - 查询字段值获取 
-	 * 
-	 * @param column 欲查询的字段名
-	 * @param value  查询字段的值
-	 * @param orderColumn 欲排列的字段名
-	 * @param sequence 正序或逆序  asc 或  desc
-	 * 
-	 * @return 实体List集合
-	 * */
-	List<T> getService(String column,Object value,String orderColumn, String sequence);
-	
+	List<T> getService(Integer start, Integer count, String clause, Object... values); 
+		
 	
 	/**
-	 * [G2] 获取所有 满足条件语句的count个实体集合 - 默认从0开始
-	 * 
-	 * @param count 前count个条目
-	 * @param orderColumn 排序字段
-	 * @param sequence 正序或逆序 asc 或  desc
-	 * @param fiters 检索条件
-	 * 
-	 * @return 实体List集合
-	 * */
-	List<T> getService(Integer count, String orderColumn, String sequence, Object[]... filters);
-	
-	
-	/**
-	 * [G2-BASE] 获取所有 满足条件语句的 实体集合
-	 * 
-	 * @param start 开始数字
-	 * @param count 数目
-	 * @param orderColumn 排序字段
-	 * @sequence 正序或逆序
-	 * @fiters 检索条件,格式形如 new Object[] {"columnName","=","columnValue"}
-	 * 
-	 * @return 实体List集合
-	 * */
-	List<T> getService(Integer start, Integer count, String orderColumn, String sequence, Object[]... filters); 
-	
-	
-	/**
-	 * [G3] 获取所有 满足条件语句的count个 实体集合 - 默认从0开始
+	 * [G1-1] 获取所有 满足条件语句的count个 实体集合 - 默认从0开始
 	 * 
 	 * @param count 前count个条目
 	 * @param clause 条件语句 形如 "where id = ? and name = ?"
@@ -182,17 +143,15 @@ public interface BaseService<T,ID extends Serializable> {
 	
 	
 	/**
-	 * [G3-BASE] 获取所有 满足条件语句的 count个 实体集合 - [BASE]
+	 * [G1-2] 获取所有 满足条件语句clause 的实体集合
 	 * 
-	 * @param start 开始条目
-	 * @param count 条目数
 	 * @param clause 条件语句 形如 "where id = ? and name = ?"
 	 * @param values 占位符? 的对应值
 	 * 
 	 * @return 实体List集合
 	 * */
-	List<T> getService(Integer start, Integer count, String clause, Object... values); 
-		
+	List<T> getService(String clause, Object... values);
+	
 	
 	/** 
 	 * 获取分页内容 

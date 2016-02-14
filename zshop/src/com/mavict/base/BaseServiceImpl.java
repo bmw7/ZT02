@@ -71,37 +71,21 @@ public class BaseServiceImpl<T,ID extends Serializable> implements BaseService<T
 	public List<T> getService() {
 		return baseDao.get();
 	}
-	
+		
 	@Override
-	public List<T> getService(String column, Object value, String orderColumn) {
-		return baseDao.get(column, value, orderColumn);
-	}
-
-	@Override
-	public List<T> getService(String column, Object value, String orderColumn, String sequence) {
-		return baseDao.get(column, value, orderColumn, sequence);
-	}
-	
-	@Override
-	public List<T> getService(Integer count, String orderColumn, String sequence, Object[]... filters) {
-		return baseDao.get(count, orderColumn, sequence, filters);
-	}
-	
-	@Override
-	public List<T> getService(Integer start, Integer count, String orderColumn, String sequence, Object[]... filters) {
-		return baseDao.get(start, count, orderColumn, sequence, filters);
+	public List<T> getService(Integer start, Integer count, String clause, Object... values) {
+		return baseDao.get(start, count, clause, values);
 	}
 	
 	@Override
 	public List<T> getService(Integer count, String clause, Object... values) {
 		return baseDao.get(count, clause, values);
 	}
-
+	
 	@Override
-	public List<T> getService(Integer start, Integer count, String clause, Object... values) {
-		return baseDao.get(start, count, clause, values);
+	public List<T> getService(String clause, Object... values) {
+		return baseDao.get(clause, values);
 	}
-
 	@Override
 	public PagedContent<T> getPagedContentService(PageInfo pageInfo) {
 		return baseDao.getPagedContent(pageInfo);
@@ -116,7 +100,6 @@ public class BaseServiceImpl<T,ID extends Serializable> implements BaseService<T
 	public PagedContent<T> getPagedContentService(PageInfo pageInfo, String clause, Object... values) {
 		return baseDao.getPagedContent(pageInfo, clause, values);
 	}
-
 
 
 }

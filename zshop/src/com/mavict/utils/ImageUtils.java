@@ -16,7 +16,12 @@ import javax.imageio.ImageIO;
  * @author 沧海软件(北京)有限公司
  * @version 1.0
  */
-public class ImageUtils {
+public final class ImageUtils {
+	
+	    /** 不可实例化  */
+	    private ImageUtils() {
+	
+		}
 	    
 	    private static String DEFAULT_PREVFIX = "thumb_";
 	    private static Boolean DEFAULT_FORCE = false;

@@ -9,6 +9,8 @@
 	<setting name="email" value="z@mavict.com" />
 	<setting name="certtext" value="京ICP备10000000号" />
 	<setting name="isSiteEnabled" value="true" />
+	<setting name="cookiePath" value="/" />
+	<setting name="cookieDomain" value="" />
 
 	<setting name="smtpFromMail" value="test@shopxx.net" />
 	<setting name="smtpHost" value="smtp.shopxx.net" />

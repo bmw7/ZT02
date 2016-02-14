@@ -13,8 +13,13 @@ import java.net.URLConnection;
  * @author 沧海软件(北京)有限公司
  * @version 1.0
  */
-public class JsonUtils {
+public final class JsonUtils {
+	
+	/** 不可实例化  */
+	private JsonUtils() {
 
+	}
+	
 	/** 通过json网址获得json字符串数据 */
 	public static String getGson(String url){
 		StringBuilder json = new StringBuilder();  

@@ -18,23 +18,39 @@ import com.mavict.member.account.MemberAccount;
 
 @Entity
 public class Member extends BaseEntity {
+	
 	private static final long serialVersionUID = -6011048744942636050L;
+	
+	/* 身份信息名称 - 用于session  */
+	public static final String PRINCIPAL_NAME = Member.class.getName() + ".PRINCIPAL";
+	
+	/* 客户端 用户Cookie名称  */
+	public static final String COOKIE_NAME = "member";
+	
 	/* 账号  */
 	private String username;
+	
 	/* 密码  */
 	private String password;
+	
 	/* 邮件  */
 	private String email;
+	
 	/* 电话  */
 	private String phone;
+	
 	/* 地址  */
 	private String address;
+	
 	/* 姓名  */
 	private String name;
+	
 	/* 可用金额  */
 	private Float money;
+	
 	/* 冻结金额  */
 	private Float freeze;
+	
 	/* 资金账户  */
 	private List<MemberAccount> memberAccounts = new ArrayList<MemberAccount>();
 	

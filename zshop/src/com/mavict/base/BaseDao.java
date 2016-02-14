@@ -118,71 +118,7 @@ public interface BaseDao<T,ID extends Serializable> {
 	
 	
 	/**
-	 * [G1] 获取实体集合 - 查询字段值获取 - 默认逆序排列
-	 * 
-	 * @param column 欲查询的字段名
-	 * @param value  查询字段的值
-	 * @param orderColumn 默认为逆序排列的字段名
-	 * 
-	 * @return 实体List集合
-	 * */
-	List<T> get(String column,Object value,String orderColumn);
-	
-	
-	/**
-	 * [G1-BASE] 获取实体集合 - 查询字段值获取
-	 * 
-	 * @param column 欲查询的字段名
-	 * @param value  查询字段的值
-	 * @param orderColumn 欲排列的字段名
-	 * @param sequence 正序或逆序  asc 或  desc
-	 * 
-	 * @return 实体List集合
-	 * */
-	List<T> get(String column,Object value,String orderColumn, String sequence);
-	
-	
-	/**
-	 * [G2] 获取所有 满足条件语句的count个实体集合 - 默认从0开始
-	 * 
-	 * @param count 前count个条目
-	 * @param orderColumn 排序字段
-	 * @param sequence 正序或逆序 asc 或  desc
-	 * @param fiters 检索条件
-	 * 
-	 * @return 实体List集合
-	 * */
-	List<T> get(Integer count, String orderColumn, String sequence, Object[]... filters);
-	
-	
-	/**
-	 * [G2-BASE] 获取所有 满足条件语句的 count个 实体集合 - [BASE]
-	 * 
-	 * @param start 开始条目
-	 * @param count 条目数
-	 * @param orderColumn 排序字段
-	 * @param sequence 正序或逆序 asc 或  desc
-	 * @param fiters 检索条件
-	 * 
-	 * @return 实体List集合
-	 * */
-	List<T> get(Integer start, Integer count, String orderColumn, String sequence, Object[]... filters); 
-
-	
-	/**
-	 * [G3] 获取所有 满足条件语句的count个 实体集合 - 默认从0开始
-	 * 
-	 * @param count 前count个条目
-	 * @param clause 条件语句 形如 "where id = ? and name = ?"
-	 * @param values 占位符? 的对应值
-	 * 
-	 * @return 实体List集合
-	 * */
-	List<T> get(Integer count, String clause, Object... values);
-	
-	
-	/**
-	 * [G3-BASE] 获取所有 满足条件语句的 count个 实体集合 - [BASE]
+	 * [G1] 获取所有 满足条件语句的 count个 实体集合 - [BASE]
 	 * 
 	 * @param start 开始条目
 	 * @param count 条目数
@@ -192,6 +128,28 @@ public interface BaseDao<T,ID extends Serializable> {
 	 * @return 实体List集合
 	 * */
 	List<T> get(Integer start, Integer count, String clause, Object... values); 
+	
+	
+	/**
+	 * [G1-1] 获取所有 满足条件语句的count个 实体集合 - 默认从0开始
+	 * 
+	 * @param count 前count个条目
+	 * @param clause 条件语句 形如 "where id = ? and name = ?"
+	 * @param values 占位符? 的对应值
+	 * 
+	 * @return 实体List集合
+	 * */
+	List<T> get(Integer count, String clause, Object... values);
+	
+	/**
+	 * [G1-2] 获取所有 满足条件语句clause的 实体集合
+	 * 
+	 * @param clause 条件语句 形如 "where id = ? and name = ?"
+	 * @param values 占位符? 的对应值
+	 * 
+	 * @return 实体List集合
+	 * */
+	List<T> get(String clause, Object... values);
 	
 	
 	/** 

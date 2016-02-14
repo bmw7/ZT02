@@ -26,5 +26,13 @@ public interface RSAService {
 	
 	/** 生成前台页面js公钥所需的两个参数，并压入model*/
 	void createPublicKeyModelParams(HttpServletRequest request,ModelMap model);
+	
+	/** 
+	 * 生成前台页面js公钥所需的两个参数 modulus exponent,以[mavict]字符串连接二者并作为分隔符
+	 * 
+	 * @param request
+	 * @return modulus[mavict]exponent
+	 * */
+	String createPublicKeyModelParams(HttpServletRequest request);
 
 }

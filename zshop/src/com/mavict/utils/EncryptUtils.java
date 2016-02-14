@@ -9,9 +9,12 @@ import java.security.MessageDigest;
  * @version 1.0
  */
 
-public class EncryptUtils {
+public final class EncryptUtils {
 
-	private EncryptUtils(){}
+	/** 不可实例化  */
+	private EncryptUtils(){
+		
+	}
 	
 	@SuppressWarnings("finally")
 	public static String encrypt(String str){

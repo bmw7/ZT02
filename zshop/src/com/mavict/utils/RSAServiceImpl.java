@@ -69,6 +69,18 @@ public class RSAServiceImpl implements RSAService {
     	model.put("modulus", modulus);
     	model.put("exponent", exponent);	
 	}
+
+	@Override
+	public String createPublicKeyModelParams(HttpServletRequest request) {
+		/** 将存储在session中的私钥删除。确保下次产生 RSA钥匙对 不受影响 */
+		removePrivateKey(request);  
+		
+    	/** 随机获取公钥 modulus exponent 参数数据 */
+		RSAPublicKey publicKey = generateKey(request);
+    	String modulus = Base64.encodeBase64String(publicKey.getModulus().toByteArray());
+    	String exponent = Base64.encodeBase64String(publicKey.getPublicExponent().toByteArray());   	
+    	return modulus + "[mavict]" + exponent;		
+	}
 	
 
 }

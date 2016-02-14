@@ -108,49 +108,6 @@ public class BaseDaoImpl<T,ID extends Serializable> implements BaseDao<T, ID>{
 		return entity;
 	}
 	
-
-	@Override
-	public List<T> get(String column, Object value, String orderColumn, String sequence) {
-		String hql = "from "+entityClass.getSimpleName()+" where "+column+" =:queryObject order by " + orderColumn + " " + sequence ;
-		Query query = getSession().createQuery(hql);
-		query.setParameter("queryObject", value);
-		return query.list();
-	}
-	
-	
-	@Override
-	public List<T> get(Integer start, Integer count, String orderColumn, String sequence, Object[]... filters) {
-		
-		/* 拼凑条件查询语句 */
-		String clause ="";
-		for (Object[] filter : filters) {
-			String column = (String) filter[0];
-			String compare = (String) filter[1];
-			clause += (column + " " + compare + " ? and ");
-		}
-		String whereClause = clause.substring(0, clause.lastIndexOf("and") - 1);
-		
-		String hql = "from "+ entityClass.getSimpleName() +" where "+whereClause+" order by "+orderColumn+" "+sequence;
-		Query query = getSession().createQuery(hql);
-		
-		/* 设置占位符参数值  */
-		for (int i = 0; i < filters.length; i++) {
-			
-			/* 对Date类型额外设置 */
-			if (filters[i][2] instanceof Date) {
-				query.setDate(i, (Date) filters[i][2]);			
-			}else{
-				query.setParameter(i, filters[i][2]);
-			}	
-		}
-		
-		/* 设置起始条目 */	
-		query.setFirstResult(start);
-		query.setMaxResults(count);
-		
-		return query.list();
-	}
-
 	@Override
 	public List<T> get(Integer start, Integer count, String clause, Object... values) {
 		String hql = "from "+ entityClass.getSimpleName() + " " + clause;
@@ -170,6 +127,26 @@ public class BaseDaoImpl<T,ID extends Serializable> implements BaseDao<T, ID>{
 		/* 设置起始条目 */
 		query.setFirstResult(start);
 		query.setMaxResults(count);
+		
+		return query.list();
+	}
+	
+	
+	@Override
+	public List<T> get(String clause, Object... values) {
+		String hql = "from "+ entityClass.getSimpleName() + " " + clause;
+		Query query = getSession().createQuery(hql);
+		
+		/* 设置占位符参数值  */
+		for (int i = 0; i < values.length; i++) {
+			
+			/* 对Date类型额外设置 */
+			if (values[i] instanceof Date) {
+				query.setDate(i, (Date) values[i]);		
+			}else{
+				query.setParameter(i, values[i]);
+			}	
+		}	
 		
 		return query.list();
 	}
@@ -220,7 +197,6 @@ public class BaseDaoImpl<T,ID extends Serializable> implements BaseDao<T, ID>{
 	}
 	
 	
-	
 	@Override
 	public Long count() {
 		String hql = "select count(*) from "+entityClass.getSimpleName();
@@ -251,17 +227,6 @@ public class BaseDaoImpl<T,ID extends Serializable> implements BaseDao<T, ID>{
 	public List<T> get(Integer count, String clause, Object... values) {
 		return get(0, count, clause, values);
 	}
-
-	@Override
-	public List<T> get(Integer count, String orderColumn, String sequence, Object[]... filters) {
-		return get(0, count, orderColumn, sequence, filters);
-	}
-
-	@Override
-	public List<T> get(String column, Object value, String orderColumn) {
-		return get(column, value, orderColumn, "desc");
-	}
-
 
 
 }

@@ -11,7 +11,12 @@ import java.util.ArrayList;
  * @author 沧海软件(北京)有限公司
  * @version 1.0
  */
-public class StripTagsUtils {
+public final class StripTagsUtils {
+	
+	    /** 不可实例化  */
+		private StripTagsUtils() {
+			
+		}
 
         private static  StripTagsRegExp reg = null;
         

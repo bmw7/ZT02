@@ -16,7 +16,12 @@ import com.mavict.setting.mail.Mail;
  * @version 1.0
  */
 
-public class MailUtils {
+public final class MailUtils {
+	
+	/** 不可实例化  */
+	private MailUtils() {
+		
+	}
 	
 	public static String send(Mail mail) {  
         // 发送email  
