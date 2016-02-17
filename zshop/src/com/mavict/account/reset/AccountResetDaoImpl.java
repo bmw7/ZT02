@@ -28,7 +28,7 @@ public class AccountResetDaoImpl extends BaseDaoImpl<AccountReset, Integer> impl
         long date = expireDate.getTime() / 1000 * 1000;  // 忽略毫秒数  mySql 取出时间是忽略毫秒数的
         String validateCode = EncryptUtils.encrypt(account.getId() + "$" + date + "$" + uuid);
         
-        AccountReset accountReset = get("accountId",account.getId());
+        AccountReset accountReset = getOne("accountId",account.getId());
         if (accountReset == null) {
         	accountReset = new AccountReset(account,expireDate,validateCode);
         	save(accountReset);

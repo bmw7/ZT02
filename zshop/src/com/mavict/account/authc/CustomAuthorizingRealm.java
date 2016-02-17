@@ -50,7 +50,7 @@ public class CustomAuthorizingRealm extends AuthorizingRealm{
 		String username = (String) principals.fromRealm(getName()).iterator().next(); // 获取当前登录的用户名
 		/** 判断登陆名是否电子邮件 */
 		String columnName = (username.indexOf("@") == -1) ? "username" : "email";
-		Account account = accountService.getService(columnName, username);
+		Account account = accountService.getOneService(columnName, username);
 		
 		AccountRole role = account.getAccountRole();             /** 获取角色*/
 		List<AccountPerm> accountPerms = role.getAccountPerms(); /** 获取权限*/	
@@ -77,7 +77,7 @@ public class CustomAuthorizingRealm extends AuthorizingRealm{
 		
 		/** 判断登陆名是否电子邮件 */
 		String columnName = (username.indexOf("@") == -1) ? "username" : "email";
-		Account account = accountService.getService(columnName, username);
+		Account account = accountService.getOneService(columnName, username);
 		
 		/** 用户名不正确，无实体 */
 		if (account == null) {

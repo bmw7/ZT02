@@ -93,13 +93,7 @@ public class BaseDaoImpl<T,ID extends Serializable> implements BaseDao<T, ID>{
 	}
 	
 	@Override
-	public List<T> get() {
-		String hql = "from "+entityClass.getSimpleName();
-		return getSession().createQuery(hql).list();
-	}
-	
-	@Override
-	public T get(String column, Object value) {
+	public T getOne(String column, Object value) {
 		String hql = "from "+entityClass.getSimpleName()+" where "+column+" =:queryObject";
 		Query query = getSession().createQuery(hql);
 		query.setParameter("queryObject", value);

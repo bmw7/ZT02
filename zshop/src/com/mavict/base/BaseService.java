@@ -104,18 +104,8 @@ public interface BaseService<T,ID extends Serializable> {
 	 * 
 	 * @return 实体
 	 * */
-	T getService(String column, Object value);
-	
-	
-	/**
-	 * 获取所有实体
-	 * 
-	 * 说明：未定义排序，默认排序
-	 * 
-	 * @return 实体List
-	 * */
-	List<T> getService(); 
-		
+	T getOneService(String column, Object value);
+			
 	
 	/**
 	 * [G1] 获取所有 满足条件语句的 count个 实体集合 - [BASE]

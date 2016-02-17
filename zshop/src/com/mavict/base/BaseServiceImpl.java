@@ -61,17 +61,12 @@ public class BaseServiceImpl<T,ID extends Serializable> implements BaseService<T
 	public T getService(ID id) {
 		return baseDao.get(id);
 	}
-	
-	@Override
-	public T getService(String columnName, Object queryObject) {
-		return baseDao.get(columnName, queryObject);
-	}
-	
-	@Override
-	public List<T> getService() {
-		return baseDao.get();
-	}
 		
+	@Override
+	public T getOneService(String column, Object value) {
+		return baseDao.getOne(column, value);
+	}
+	
 	@Override
 	public List<T> getService(Integer start, Integer count, String clause, Object... values) {
 		return baseDao.get(start, count, clause, values);
@@ -86,6 +81,9 @@ public class BaseServiceImpl<T,ID extends Serializable> implements BaseService<T
 	public List<T> getService(String clause, Object... values) {
 		return baseDao.get(clause, values);
 	}
+	
+
+	
 	@Override
 	public PagedContent<T> getPagedContentService(PageInfo pageInfo) {
 		return baseDao.getPagedContent(pageInfo);

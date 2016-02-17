@@ -9,5 +9,11 @@ import com.mavict.base.BaseService;
  * @version 1.0
  */
 public interface MemberService extends BaseService<Member, Integer> {
-
+	
+	/**
+	 * 获取当前登录会员
+	 * 
+	 * @return 当前登录会员，若不存在则返回null
+	 */
+	Member getCurrent();
 }

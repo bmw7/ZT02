@@ -2,11 +2,12 @@ package com.mavict.member;
 
 import java.net.URLEncoder;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.springframework.beans.factory.annotation.Value;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
@@ -32,6 +33,9 @@ public class MemberInterceptor extends HandlerInterceptorAdapter {
 
 	/* 登录URL */
 	private String loginUrl = DEFAULT_LOGIN_URL;
+	
+	@Resource(name = "memberServiceImpl")
+	private MemberService memberService;
 
 
 	@Override
@@ -60,7 +64,12 @@ public class MemberInterceptor extends HandlerInterceptorAdapter {
 	
 	@Override
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-		super.postHandle(request, response, handler, modelAndView);
+		if (modelAndView != null) {
+			String viewName = modelAndView.getViewName();
+			if (!StringUtils.startsWith(viewName, REDIRECT_VIEW_NAME_PREFIX)) {
+				//modelAndView.addObject(MEMBER_ATTRIBUTE_NAME, memberService.getCurrent());
+			}
+		}
 	}
 
 }

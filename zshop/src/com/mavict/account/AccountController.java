@@ -48,7 +48,7 @@ public class AccountController extends BaseController{
 	/** 添加 */
 	@RequestMapping("/add")
 	public String add(ModelMap model){
-		model.addAttribute("accountRoles", accountRoleService.getService());
+		model.addAttribute("accountRoles", accountRoleService.getService("order by id asc"));
 		return "/admin/account/add";
 	}
 	
@@ -83,7 +83,7 @@ public class AccountController extends BaseController{
 	@RequestMapping("/edit/{id}")
 	public String edit(@PathVariable Integer id, ModelMap model){
 		model.addAttribute("account", accountService.getService(id));
-		model.addAttribute("roles", accountRoleService.getService());
+		model.addAttribute("roles", accountRoleService.getService("order by id asc"));
 		return "/admin/account/edit";
 	}
 	

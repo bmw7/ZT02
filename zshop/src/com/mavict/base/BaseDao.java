@@ -104,17 +104,7 @@ public interface BaseDao<T,ID extends Serializable> {
 	 * 
 	 * @return 实体
 	 * */
-	T get(String column,Object value);
-	
-	
-	/**
-	 * 获取所有实体
-	 * 
-	 * 说明：未定义排序，默认排序
-	 * 
-	 * @return 实体List
-	 * */
-	List<T> get(); 
+	T getOne(String column,Object value);
 	
 	
 	/**

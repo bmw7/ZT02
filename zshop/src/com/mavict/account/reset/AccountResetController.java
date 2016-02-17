@@ -59,7 +59,7 @@ public class AccountResetController {
 	public String back(HttpServletRequest request) {
 		String username = request.getParameter("username");
 		String columnName = (username.contains("@")) ? "email" : "username";
-		Account account = accountService.getService(columnName, username);
+		Account account = accountService.getOneService(columnName, username);
 		String result = (username.contains("@")) ? "未查询到此邮箱，请重新输入" : "错误的管理账号";;
 		if (account != null) {
 
@@ -80,7 +80,7 @@ public class AccountResetController {
 	/** 验证邮箱重置密码链接有效性，有效则转向修改密码表单页面 */
 	@RequestMapping("/account")
 	public String account(@RequestParam("uid") Integer uid,@RequestParam("code") String code,ModelMap model){
-		AccountReset accountReset = accountResetService.getService("accountId", uid);
+		AccountReset accountReset = accountResetService.getOneService("accountId", uid);
 		String validateCode  = accountReset.getValidateCode();
 		Date expireDate = accountReset.getExpireDate();
 		if ( (validateCode.equals(code)) && (expireDate.getTime() > System.currentTimeMillis()) ) {
